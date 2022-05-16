@@ -1,0 +1,35 @@
+2022/05/16 15:56:42 Server Started!
+2022/05/16 17:10:35 inside AddExpenses function
+2022/05/16 17:10:35 ****  Request Pretty Printing Starts ****
+2022/05/16 17:10:35 {
+	"Type": "Football",
+	"rate": 100,
+	"title": "xyz",
+	"Date": "2021-12-16T15:04:05.000Z"
+}
+2022/05/16 17:10:35 Football
+2022/05/16 17:10:35 xyz
+2022/05/16 17:10:35 2021-12-16 15:04:05 +0000 UTC
+2022/05/16 17:10:35 100
+2022/05/16 17:10:35 New Expenses ID is:  8
+2022/05/16 17:21:45 DeleteExpense function is invoked
+2022/05/16 17:21:47 DeleteExpense function is invoked
+2022/05/16 17:21:51 DeleteExpense function is invoked
+2022/05/16 17:22:05 DeleteExpense function is invoked
+2022/05/16 17:22:19 DeleteExpense function is invoked
+2022/05/16 17:49:17 GetAllExpenses function is invoked
+2022/05/16 17:49:17 GetAllExpenses: db handle created
+2022/05/16 17:49:17 GetAllActivities: rows retrieved
+2022/05/16 17:50:45 inside AddExpenses function
+2022/05/16 17:50:45 ****  Request Pretty Printing Starts ****
+2022/05/16 17:50:45 {
+	"Title": "CAR",
+	"Type": "Insurance",
+	"Date": "2022-05-16T00:00:00.000Z",
+	"Rate": 1111
+}
+2022/05/16 17:50:45 Insurance
+2022/05/16 17:50:45 CAR
+2022/05/16 17:50:45 2022-05-16 00:00:00 +0000 UTC
+2022/05/16 17:50:45 1111
+2022/05/16 17:50:45 New Expenses ID is:  9

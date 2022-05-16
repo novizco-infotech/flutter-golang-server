@@ -13,10 +13,6 @@ import (
 	"github.com/itsfhz/flutter-golang-server/utils"
 )
 
-// func HomePage(w http.ResponseWriter, r *http.Request) {
-// 	fmt.Fprintf(w, "Welcome to the HomePage!")
-// 	log.Println("Endpoint Hit: homePage")
-// }
 func TestLink(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode("Connection to server successful..")
 }
@@ -37,14 +33,12 @@ func GetExpense(w http.ResponseWriter, r *http.Request) {
 	log.Println(expense)
 	switch {
 	case err == sql.ErrNoRows:
-		//log.Fatalf("no user with id %d", id)
 		json.NewEncoder(w).Encode(fmt.Sprint("Activity with id:", id, " does not exist"))
 
 	case err != nil:
 		log.Fatal(err)
 		panic(err)
 	default:
-		//log.Printf("name is %s\n", partner.Name)
 		json.NewEncoder(w).Encode(expense)
 	}
 
@@ -60,7 +54,6 @@ func GetAllExpenses(w http.ResponseWriter, r *http.Request) {
 
 	rows, err := db.Query("SELECT id, type, title, date, rate FROM expenses ")
 	if err != nil {
-		// handle this error better tharoduct
 		panic(err)
 	}
 	defer rows.Close()
@@ -87,7 +80,6 @@ func GetAllExpenses(w http.ResponseWriter, r *http.Request) {
 }
 
 func AddExpenses(w http.ResponseWriter, r *http.Request) {
-	//fmt.Println("Add Product function is invoked")
 	log.Println("inside AddExpenses function")
 	var bodyBytes []byte
 	var err1 error
@@ -100,7 +92,6 @@ func AddExpenses(w http.ResponseWriter, r *http.Request) {
 		defer r.Body.Close()
 	}
 
-	// Below function is only for pretty printing of request contents
 	utils.PrintRequest(r, bodyBytes)
 
 	var expense models.Expense
@@ -122,13 +113,9 @@ func AddExpenses(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Println("New Expenses ID is: ", id)
 
-	//fmt.Println("Parnter received is :")
-	//fmt.Println(partner)
-	//json.NewEncoder(w).Encode(partner)
 	message := fmt.Sprint("New Expenses is created with id: ", id)
 	json.NewEncoder(w).Encode(message)
 
-	//fmt.Fprintf(w, "%+v", string(reqBody))
 }
 
 func DeleteExpense(w http.ResponseWriter, r *http.Request) {
@@ -178,7 +165,7 @@ func UpdateExpense(w http.ResponseWriter, r *http.Request) {
 
 	sqlStatement := "UPDATE expenses SET type = $1, title = $2, date = $3, rate = $4 WHERE id = $5;"
 
-	res, err1 := db.Exec(sqlStatement, expense.Type, expense.Title, expense.Date, expense.Rate)
+	res, err1 := db.Exec(sqlStatement, expense.Type, expense.Title, expense.Date, expense.Rate, id)
 	if err1 != nil {
 		panic(err1)
 	}

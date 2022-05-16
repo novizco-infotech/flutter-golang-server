@@ -8,12 +8,11 @@ import (
 )
 
 const (
-	host = "localhost"
-	port = 5432
-	//port     = 5433
+	host     = "localhost"
+	port     = 5432
 	user     = "postgres"
 	password = "admin123"
-	dbname   = "feetracker_dev01"
+	dbname   = "flutter-golang-server_dev01"
 )
 
 func DbHandle() *sql.DB {
@@ -24,8 +23,6 @@ func DbHandle() *sql.DB {
 	if err != nil {
 		panic(err)
 	}
-	//defer db.Close()
+
 	return db
 }
-
-//test comment
